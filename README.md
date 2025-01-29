@@ -56,15 +56,41 @@ localStorage.clear();
 
 Las cookies son pequeños fragmentos de datos que se almacenan en el navegador y que se envían con cada solicitud HTTP. Se usan para persistir información entre sesiones y para gestionar autenticaciones.
 
-2.2. Clasificación de Cookies
+2.2. Tipos de Cookies
 
-Cookies de sesión: Se eliminan cuando el usuario cierra el navegador.
+Cookies de sesión
 
-Cookies persistentes: Tienen una fecha de expiración y permanecen en el navegador hasta que se eliminan.
+Descripción: Se eliminan cuando el usuario cierra el navegador.
 
-Cookies de terceros: Son creadas por dominios diferentes al que el usuario está visitando.
+Ejemplo:
 
-Cookies seguras: Solo se transmiten a través de HTTPS.
+document.cookie = "sesionID=12345; path=/";
+
+Cookies persistentes
+
+Descripción: Tienen una fecha de expiración y permanecen en el navegador hasta que se eliminan.
+
+Ejemplo:
+
+let fechaExpiracion = new Date();
+fechaExpiracion.setTime(fechaExpiracion.getTime() + (7 * 24 * 60 * 60 * 1000));
+document.cookie = "usuario=Anabel; expires=" + fechaExpiracion.toUTCString() + "; path=/";
+
+Cookies de terceros
+
+Descripción: Son creadas por dominios diferentes al que el usuario está visitando.
+
+Ejemplo: Estas cookies son utilizadas por anuncios o rastreadores.
+
+document.cookie = "trackingID=xyz; domain=anunciante.com; path=/";
+
+Cookies seguras
+
+Descripción: Solo se transmiten a través de HTTPS, aumentando la seguridad.
+
+Ejemplo:
+
+document.cookie = "autenticacionToken=abc123; Secure; path=/";
 
 2.3. Métodos de manipulación de Cookies
 
@@ -74,10 +100,7 @@ Descripción: Se asigna una cookie con nombre y valor, opcionalmente con una fec
 
 Ejemplo:
 
-let fechaExpiracion = new Date();
-fechaExpiracion.setTime(fechaExpiracion.getTime() + (7 * 24 * 60 * 60 * 1000));
-let expiracion = "expires=" + fechaExpiracion.toUTCString();
-document.cookie = "usuario=Anabel; " + expiracion + "; path=/";
+document.cookie = "usuario=Anabel; expires=" + new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000).toUTCString() + "; path=/";
 
 Leer cookies
 
@@ -95,42 +118,8 @@ Ejemplo:
 
 document.cookie = "usuario=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
-3. Comparación entre Local Storage y Cookies
-
-Característica
-
-Local Storage
-
-Cookies
-
-Capacidad
-
-Hasta 5MB
-
-4KB
-
-Persistencia
-
-Indefinida
-
-Depende de expiración
-
-Accesibilidad
-
-Solo en JavaScript
-
-Enviadas en cada petición HTTP
-
-Seguridad
-
-No se envía en cada solicitud
-
-Puede ser accedida por el servidor
-
-4. Conclusión
+3. Conclusión
 
 Usar Local Storage cuando se necesite almacenar datos grandes y persistentes que no deban enviarse con cada solicitud.
 
 Usar Cookies cuando sea necesario enviar datos al servidor con cada petición, como tokens de autenticación.
-
-Con esta guía, ya tienes los fundamentos para usar Local Storage y Cookies en JavaScript de manera efectiva.
