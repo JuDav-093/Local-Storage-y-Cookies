@@ -4,7 +4,7 @@
 
 ### Mostrar cookies:
 
-`showCookies()` obtiene las cookies del navegador, las divide y las muestra en una lista (<ul>).
+`showCookies()` obtiene las cookies del navegador, las divide y las muestra en una lista (\<ul>\).
 
 ### Eliminar una cookie:
 
