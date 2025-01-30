@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies Propias: Preferencias de Usuario</title>
+    <script src="cookiesPropias.js"></script>
+    <link rel="stylesheet" href="cookiesPropias.css">
+</head>
+<body>
+    <h1>Personaliza tu Experiencia</h1>
+
+    <label for="tema">Elige un tema:</label>
+    <select id="tema">
+        <option value="claro">Claro</option>
+        <option value="oscuro">Oscuro</option>
+    </select>
+    <button onclick="guardarPreferencia()">Guardar Preferencia</button>
+    <button onclick="mostrarPreferencia()">Mostrar Preferencia</button>
+
+    <div id="mensaje"></div>
+</body>
+</html>
