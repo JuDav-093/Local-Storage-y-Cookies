@@ -4,6 +4,7 @@ Guia de uso y ejemplos
 Notas importantes 
 
 Cómo debe ser el aviso de cookies
+  
   Lo más importante, la funcionalidad: el aviso debe bloquear todas las cookies (salvo las esenciales o de funcionalidad) hasta que el usuario no dé su aceptación explícitamente. Es decir, la opción “si sigues navegando, aceptas las cookies” no es válida. 
   El aviso de cookies debe incluir opciones que permitan aceptar todas las cookies, rechazar todas las cookies o configurarlas.
   En la opción de configuración, se recomienda agrupar las cookies —por ejemplo, por funcionalidad para que el usuario no tenga que aceptarlas o rechazarlas una por una. 
