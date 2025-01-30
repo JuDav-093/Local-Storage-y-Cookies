@@ -1,20 +1,25 @@
-# Ejemplo de uso de get, set y remove
-## `localStorage.setItem(key, value)` (Guardar datos)  
+# Ejemplo de uso de `localStorage` en un formulario  
 
-### 📖 Descripción  
-`localStorage.setItem(key, value)` almacena un valor en el almacenamiento local del navegador.  
+Este formulario nos muestra de que manera se trabaja con `localStorage` para **guardar**, **recuperar** y **eliminar** un nombre ingresado por el usuario en un formulario.  
 
-**Parámetros:**  
-- `key` → Identificador único en formato `string` para acceder al valor almacenado.  
-- `value` → Dato que se quiere almacenar (debe ser `string`).  
+## Descripción del caso de uso  
 
-**Comportamiento:**  
-- Si la clave **ya existe**, su valor se sobrescribirá.  
-- Si la clave **no existe**, se creará una nueva entrada en `localStorage`.  
+Se utilizan tres métodos de la API `localStorage`:  
+- **`setItem`** para almacenar el nombre ingresado.  
+- **`getItem`** para recuperar y mostrar el nombre almacenado.  
+- **`removeItem`** para eliminar el nombre del almacenamiento.  
 
-**Consideraciones:**  
-- Si se desea almacenar un objeto o un array, **debe convertirse en string** usando `JSON.stringify()`.  
-- `localStorage` **no acepta funciones ni estructuras cíclicas** en los objetos almacenados.  
-- Los datos quedan disponibles en todas las pestañas y ventanas del mismo dominio.  
+El código se divide en dos partes:  
+- Un archivo HTML con un formulario de entrada y botones para realizar cada acción.  
+- Un archivo JavaScript (`form.js`) que maneja la lógica de almacenamiento con `localStorage`.  
 
+## Funcionamiento del código  
 
+### Guardar el nombre con `setItem`  
+Cuando el usuario ingresa un nombre en el campo de texto y hace clic en "Guardar", la función `guardarNombre()` almacena el valor en `localStorage`.
+
+### Recuperar el nombre con `getItem`  
+Luego de que el usuario ingresó el nombre y hace clic en "mostrar", la función `mostrarNombre()` recupera el valor en `localStorage` y lo muestra como alerta.  
+
+### Eliminar el nombre con `removeItem`  
+Una vez el usuario guardó el nombre con el botón "guardar" y hace clic en "Eliminar", la función `eliminarNombre()` elimina el nombre del `localStorage`, y en caso de que se de click en mostrar nuevamente, no mostrará ningún nombre guardado.  

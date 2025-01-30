@@ -1,12 +1,18 @@
-# Local-Storage
-Guia de uso y ejemplos
+# Ejemplo de uso de set
+## `localStorage.setItem(key, value)` (Guardar datos)  
 
-1.  
+### Descripción  
+`localStorage.setItem(key, value)` almacena un valor en el almacenamiento local del navegador.  
 
-2. 
+**Parámetros:**  
+- `key` → Identificador único en formato `string` para acceder al valor almacenado.  
+- `value` → Dato que se quiere almacenar (debe ser `string`).  
 
-3. 
+**Funcionamiento:**  
+- Si la clave **ya existe**, su valor se sobrescribirá.  
+- Si la clave **no existe**, se creará una nueva entrada en `localStorage`.  
 
-4. Método clear() en localStorage: La guía se encuentra dentro de la carpeta `4localStorage.clear`
-
-
+**Consideraciones:**  
+- Si se desea almacenar un objeto o un array, **debe convertirse en string** usando `JSON.stringify()`.  
+- `localStorage` **no acepta funciones ni estructuras cíclicas** en los objetos almacenados.  
+- Los datos quedan disponibles en todas las pestañas y ventanas del mismo dominio.
