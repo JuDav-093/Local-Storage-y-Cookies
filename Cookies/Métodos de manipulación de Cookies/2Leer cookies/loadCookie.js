@@ -7,18 +7,10 @@ function setCookie(nombre, valor, diasExpiracion) {
 }
 
 // Función para obtener el valor de una cookie
-function getCookie(nombre) {
-    const nombreEQ = nombre + "=";
-    const cookies = document.cookie.split(';');
-    for (let i = 0; i < cookies.length; i++) {
-        let cookie = cookies[i];
-        while (cookie.charAt(0) === ' ') {
-            cookie = cookie.substring(1, cookie.length);
-        }
-        if (cookie.indexOf(nombreEQ) === 0) {
-            return cookie.substring(nombreEQ.length, cookie.length);
-        }
-    }
+function getCookie(name) {
+    let value = "; " + document.cookie;
+    let parts = value.split("; " + name + "=");
+    if (parts.length === 2) return parts.pop().split(";").shift();
     return null;
 }
 
