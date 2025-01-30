@@ -26,7 +26,6 @@ En este archivo se realiza lo siguiente:
   Verificación en consola:
   Se usa console.log() para verificar el estado del dato almacenado.
   
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Notas importantes:
 - Persistencia de datos:
 Los datos en localStorage persisten incluso después de cerrar el navegador. Solo se eliminan si:
