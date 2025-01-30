@@ -17,20 +17,20 @@ key(string) => La clave del valor a recuperar */
 
 /* Ejemplo para recuperar los datos de un usuario */
 let usuario = localStorage.getItem("usuario");
-console.log(usuario); //
+console.log(usuario);
 
 /* Otro ejemplo para recuperar un valor numérico */
 let edad = localStorage.getItem("edad");
-console.log(edad); //
+console.log(edad);
 
 /* Del mismo modo que el setItem, esta API se puede aplicar para objetos (JSON) */
 let persona = { nombre: "Esteban", edad: 30 };
 let personaGet = JSON.parse(localStorage.getItem("persona"));
-console.log(personaGet.nombre); //
-console.log(personaGet.edad);   //
+console.log(personaGet.nombre);
+console.log(personaGet.edad); 
 
 /* En caso que se intente recuperar una clave inexistente, la API devuelve null */
-console.log(localStorage.getItem("estatura")); // null
+console.log(localStorage.getItem("estatura")); //null
 
 
 /* Finalmente, se puede implementar una función la cual recupere varios datos, en este caso,
