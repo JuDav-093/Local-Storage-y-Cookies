@@ -28,6 +28,7 @@ Las **cookies técnicas** son esenciales para el correcto funcionamiento de una 
 - Las cookies técnicas **no requieren consentimiento** del usuario.
 - Son necesarias para funciones como el inicio de sesión o el carrito de compras.
 - Se recomienda establecer una fecha de expiración adecuada.
+- Usar un servidor local como XAMPP o Live Server(extension de VS Code).
 
 ### Funcionamiento del ejemplo práctico
 

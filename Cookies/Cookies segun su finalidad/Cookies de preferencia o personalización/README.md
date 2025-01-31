@@ -28,6 +28,29 @@ Se utilizan para recordar configuraciones establecidas por el usuario, evitando 
 - Son utilizadas para mejorar la experiencia de navegación.
 - Se recomienda cifrar información sensible si se almacena en cookies.
 
+## **Uso de XAMPP para el correcto funcionamiento de las Cookies**
+
+### **¿Por qué XAMPP?**
+
+Las cookies **no funcionarán de manera local** si se accede al archivo HTML mediante el protocolo `file://`.  
+Esto se debe a restricciones de seguridad del navegador. Sin embargo, si usas un servidor local como **XAMPP**, podrás ejecutar el sitio web bajo el protocolo `http://`, que **sí soporta cookies correctamente**.
+
+### **Pasos para usar XAMPP y garantizar el funcionamiento de las Cookies**
+
+1. **Instalar XAMPP**: Desde el propio navegador buscar el sitio oficial y descargar el instalador.
+
+2. **Mover el proyecto a la carpeta `htdocs` de XAMPP**:
+   - Localiza la carpeta `htdocs` dentro de la instalación de XAMPP, usualmente en `C:\xampp\htdocs`.
+   - Mover todo el proyecto (la carpeta que contiene los archivos HTML y JS) a `htdocs`.
+
+3. **Iniciar Apache en XAMPP**:
+   - Abre el panel de control de XAMPP.
+   - Hacer clic en "Start" Apache, para iniciar el servidor web local.
+
+4. **Acceder al proyecto en el navegador**:
+   - En el navegador, acceder a la URL del proyecto como `http://localhost/carpeta-del-proyecto/`.
+   - Esto asegurará que el navegador use el protocolo `http://` y que las cookies se gestionen correctamente.
+
 ### Funcionamiento del Ejemplo práctico
 
 ### Parámetros
@@ -38,8 +61,8 @@ Se utilizan para recordar configuraciones establecidas por el usuario, evitando 
 
 ### Secuencia
 
-1. Se muestra un mensaje al usuario solicitando su consentimiento para almacenar cookies de personalización.
-2. Si el usuario acepta, se crea una cookie con la configuración seleccionada (ej. idioma, tema oscuro, etc.).
-3. En visitas posteriores, la página lee la cookie y aplica automáticamente la preferencia guardada.
+1. Una vez en la interfaz de la página, el usuario podrá seleccionar entre 3 idiomas.
+2. El usuario podrá guardar, cargar o eliminar el idioma que desea.
+3. En caso de que el usuario elimine el idioma guardado, la cookie se actualizará y estará lista para almacenar otro idioma.
 4. Si el usuario cambia su preferencia, la cookie se actualiza con el nuevo valor.
 5. En caso de que el usuario elimine las cookies, las configuraciones personalizadas se restablecen a los valores predeterminados.
