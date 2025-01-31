@@ -8,11 +8,9 @@ function setCookiePreferencia(nombre, valor, diasExpiracion) {
 
 // Función para obtener el valor de una cookie de preferencia
 function getCookiePreferencia(nombre) {
-    let cookies = document.cookie.split("; ");
-    for (let cookie of cookies) {
-        let [key, value] = cookie.split("=");
-        if (key === nombre) return decodeURIComponent(value);
-    }
+    let value = "; " + document.cookie;
+    let partes = value.split("; " + nombre + "=");
+    if (partes.length === 2) return partes.pop().split(";").shift(); // Devuelve el valor de la cookie
     return null;
 }
 
