@@ -2,19 +2,26 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Cookies de Preferencia</title>
-    <script src="cookiesPreferencia.js"></script>
+    <title>Preferencias de Idioma</title>
+    <script src="cookiesPreferencia.js" defer></script> 
 </head>
 <body>
-    <h2>Cookie de Preferencia</h2>
+    <h2>Preferencias de Idioma</h2>
     
-    <label>Selecciona tu idioma:</label>
-    <select id="idioma" onchange="guardarIdioma()">
+    <label>Selecciona tu idioma preferido:</label>
+    <select id="idioma">
         <option value="es">Español</option>
         <option value="en">Inglés</option>
         <option value="fr">Francés</option>
     </select>
 
-    <p id="mensaje"></p>
+    <button onclick="guardarIdioma()">Guardar idioma</button>
+    <button onclick="cargarIdioma()">Cargar idioma</button>
+    <button onclick="eliminarIdioma()">Eliminar idioma</button>
+
+    <script>
+        window.onload = cargarIdioma; // Carga el idioma guardado anteriormente
+    </script>
 </body>
 </html>
+

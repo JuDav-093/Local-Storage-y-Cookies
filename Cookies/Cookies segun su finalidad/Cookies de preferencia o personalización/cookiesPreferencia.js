@@ -1,17 +1,48 @@
-function guardarIdioma() {
-    let idiomaSeleccionado = document.getElementById("idioma").value;
-    document.cookie = "idioma=" + idiomaSeleccionado + "; path=/; max-age=" + (365 * 24 * 60 * 60);
-    document.getElementById("mensaje").innerText = "Idioma guardado: " + idiomaSeleccionado;
+// Función para crear una cookie de preferencia
+function setCookiePreferencia(nombre, valor, diasExpiracion) {
+    const fecha = new Date();
+    fecha.setTime(fecha.getTime() + (diasExpiracion * 24 * 60 * 60 * 1000));
+    const expiracion = "expires=" + fecha.toUTCString();
+    document.cookie = `${nombre}=${valor}; ${expiracion}; path=/; SameSite=Lax`; // Se establece la cookie
 }
 
-function cargarIdioma() {
+// Función para obtener el valor de una cookie de preferencia
+function getCookiePreferencia(nombre) {
     let cookies = document.cookie.split("; ");
-    let cookieIdioma = cookies.find(row => row.startsWith("idioma="));
-    if (cookieIdioma) {
-        let idioma = cookieIdioma.split("=")[1];
-        document.getElementById("idioma").value = idioma;
-        document.getElementById("mensaje").innerText = "Idioma preferido: " + idioma;
+    for (let cookie of cookies) {
+        let [key, value] = cookie.split("=");
+        if (key === nombre) return decodeURIComponent(value);
+    }
+    return null;
+}
+
+// Función para guardar la preferencia de idioma en localStorage
+function guardarIdioma() {
+    let idiomaSeleccionado = document.getElementById("idioma").value; // Obtener el idioma seleccionado
+    localStorage.setItem("idioma_preferido", idiomaSeleccionado); // Guardar en localStorage
+    alert("Idioma guardado como: " + idiomaSeleccionado);
+}
+
+// Función para cargar la preferencia de idioma al iniciar la página o al presionar el botón
+function cargarIdioma() {
+    let idiomaGuardado = localStorage.getItem("idioma_preferido"); // Obtener el idioma guardado
+
+    if (idiomaGuardado) {
+        document.getElementById("idioma").value = idiomaGuardado; // Ajustar el select al idioma guardado
+        alert("Idioma preferido cargado: " + idiomaGuardado);
+    } else {
+        alert("No hay ningún idioma guardado.");
     }
 }
 
-window.onload = cargarIdioma;
+// Función para eliminar la preferencia de idioma
+function eliminarIdioma() {
+    let idiomaGuardado = localStorage.getItem("idioma_preferido"); // Verificar si hay un idioma guardado
+
+    if (idiomaGuardado) {
+        localStorage.removeItem("idioma_preferido"); // Eliminar el idioma guardado
+        alert("Idioma preferido eliminado.");
+    } else {
+        alert("No existe ningún idioma a eliminar.");
+    }
+}
